@@ -59,13 +59,18 @@ Chạy test mới, rồi **toàn bộ** bộ test tích hợp. Lưu output vào 
 
 Không xóa, skip hay nới lỏng khẳng định để test pass.
 
-### 7. Ghi artifact và dừng
+### 7. Bộ test case Excel
 
-`python .agents/scripts/scope.py <task-id> --stage test`. Tạo `work/<task-id>/05-test-report.md` theo mẫu `.agents/templates/05-test-report.md`, `status: draft`, điền "Bước tiếp theo". Trả lời người dùng: bảng AC → test → kết quả, kịch bản chất lượng đã phủ, lỗi sản phẩm tìm thấy, lệnh duyệt. Dừng ở đó.
+Làm theo skill `wf-testcase` cho mọi chức năng task chạm: viết `work/<task-id>/testcases.json`, chạy `testcase_xlsx.py validate`, `build`, `merge`. Kết quả `Pass`/`Fail` lấy từ lần chạy ở bước 5 và 6; lỗi sản phẩm ở bước 6 thành test case `Fail` và có dòng trong Bug Report. Test case chưa chạy được (ví dụ thao tác trên app) để `Pending`.
+
+### 8. Ghi artifact và dừng
+
+`python .agents/scripts/scope.py <task-id> --stage test`. Tạo `work/<task-id>/05-test-report.md` theo mẫu `.agents/templates/05-test-report.md`, `status: draft`, điền "Bước tiếp theo". Trả lời người dùng: bảng AC → test → kết quả, kịch bản chất lượng đã phủ, lỗi sản phẩm tìm thấy, số test case Excel theo trạng thái và các test case `Pending` cần người chạy, lệnh duyệt. Dừng ở đó.
 
 ## Tự kiểm trước khi bàn giao
 
 - [ ] Mọi AC mức `integration` có ít nhất một test; mọi kịch bản chất lượng áp dụng đã được phủ.
 - [ ] Toàn bộ bộ test tích hợp đã chạy trong phiên này, có log.
 - [ ] Không test nào bị skip hay nới lỏng mà không ghi lý do.
+- [ ] Bộ test case Excel đã dựng và gộp vào file tổng theo `wf-testcase`; số `Fail` khớp mục "Lỗi sản phẩm tìm thấy".
 - [ ] `scope.py --stage test` không báo file ngoài phạm vi.

@@ -57,6 +57,7 @@ Cần sửa file không có trong plan, đổi cách làm, hay một AC không �
 
 - Chạy toàn bộ unit test của mọi submodule đã sửa, lưu log `evidence/implement-final-<submodule>.log`, ghi số pass/fail. Test cũ fail vì thay đổi của task thì phải xử lý hoặc báo.
 - `python .agents/scripts/scope.py <task-id> --stage implement`, lưu log. Có file `[NGOÀI]` thì xử lý theo bước 5 trước khi bàn giao.
+- Task size S (không có giai đoạn test): làm bộ test case Excel theo skill `wf-testcase`, kết quả lấy từ các lần chạy test ở bước 4 và 7; ghi vào mục "Bộ test case Excel" của `04-impl-notes.md`. Task M/L làm việc này ở giai đoạn test.
 
 ### 8. Bàn giao và dừng
 
@@ -68,3 +69,4 @@ Hoàn thiện `04-impl-notes.md` (tiến độ, file đã đổi, test cuối, p
 - [ ] `scope.py --stage implement` không có file `[NGOÀI]`.
 - [ ] Toàn bộ unit test đã chạy trong phiên này, có log.
 - [ ] Task bug: có log chứng minh test hồi quy fail trước và pass sau khi sửa.
+- [ ] Task size S: bộ test case Excel đã dựng và gộp vào file tổng theo `wf-testcase`.

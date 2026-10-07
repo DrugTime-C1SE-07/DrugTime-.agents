@@ -30,6 +30,10 @@ Kết quả `python .agents/scripts/scope.py <task-id> --stage implement`: <OK |
 
 <Task bug: log chứng minh test hồi quy fail trước và pass sau khi sửa.>
 
+## 3b. Bộ test case Excel (chỉ task size S)
+
+<Theo skill wf-testcase: spec, file task, file tổng, số Pass/Fail/Pending theo chức năng, Pending cần người chạy, log `evidence/testcase-xlsx.log`. Task M/L ghi "Làm ở giai đoạn test".>
+
 ## 4. Migration
 
 <Theo skill wf-db-migration. Không có thì ghi "Không có".>

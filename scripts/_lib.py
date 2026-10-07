@@ -93,7 +93,7 @@ def project_roles(root: Path | None = None) -> dict[str, list[str]]:
         return {}
     roles: dict[str, list[str]] = {}
     for line in read_text(path).split("\n"):
-        m = re.match(r"^\s*[-*]\s*(contract|integration-test|client|backend|docs)\s*:\s*(.+)$", line)
+        m = re.match(r"^\s*[-*]\s*(contract|integration-test|client|backend|docs|testcase-book)\s*:\s*(.+)$", line)
         if m:
             vals = re.findall(r"`([^`]+)`", m.group(2))
             if vals:

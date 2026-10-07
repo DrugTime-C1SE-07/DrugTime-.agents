@@ -9,6 +9,7 @@ stage (mặc định implement):
   implement                  -> chỉ file trong bảng "File sẽ thay đổi" của plan (task S: của 01),
                                 trừ vùng `integration-test`
   test                       -> chỉ vùng `integration-test` trong AGENTS.md
+File tổng test case (vai trò `testcase-book`) được phép ở implement và test (skill wf-testcase).
 
 File "thay đổi" gồm thay đổi chưa commit ở mọi submodule, cộng các commit trên nhánh task
 (nhánh `<loại>/<task-id>`) so với nhánh gốc ghi trong .gitmodules.
@@ -123,11 +124,12 @@ def evaluate(task_id: str, stage: str, changed: list[str], plan: list[str], role
     own_work = f"{WORK}/{task_id}/"
     integ = roles.get("integration-test", [])
     contract = roles.get("contract", [])
+    book = roles.get("testcase-book", [])
     relevant = [f for f in changed if not f.startswith(own_work)]
     if stage == "implement":
-        allowed = lambda f: _match(f, plan) and not _match(f, integ)  # noqa: E731
+        allowed = lambda f: (_match(f, plan) and not _match(f, integ)) or _match(f, book)  # noqa: E731
     elif stage == "test":
-        allowed = lambda f: _match(f, integ)  # noqa: E731
+        allowed = lambda f: _match(f, integ) or _match(f, book)  # noqa: E731
     elif stage == "contract":
         allowed = lambda f: _match(f, contract)  # noqa: E731
     else:

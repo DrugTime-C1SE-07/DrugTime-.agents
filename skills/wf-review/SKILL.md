@@ -46,6 +46,8 @@ Ghi phát hiện kèm `file:dòng` cho từng mục:
 
 Giờ mới đọc `04` và `05`. So bảng kết quả với log trong `work/<task-id>/evidence/`: số pass/fail khớp không, có test nào fail hay skip bị bỏ qua không. Điều artifact nói mà diff hay log không chứng minh được là một phát hiện.
 
+Bộ test case Excel (`work/<task-id>/testcases.json` và file tổng): chạy `python .agents/scripts/testcase_xlsx.py validate <task-id>`; mỗi AC có test case; test case `Pass`/`Fail` truy được tới log; mỗi `Fail` có dòng Bug Report với mức nghiêm trọng hợp lý. Thiếu bộ test case, hoặc kết quả trong đó không có log chứng minh, là phát hiện mức High.
+
 ### 5. Phân loại
 
 - **Critical**: vi phạm bất biến kiến trúc, lộ dữ liệu, sai quyền, mất hoặc hỏng dữ liệu.
