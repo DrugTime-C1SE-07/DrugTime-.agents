@@ -76,6 +76,15 @@ def check_python(r: Report) -> None:
         r.ok(f"Python {sys.version.split()[0]}")
 
 
+def check_openpyxl(r: Report) -> None:
+    """Chỉ testcase_xlsx.py (skill wf-testcase) cần; thiếu thì cảnh báo, không chặn quy trình."""
+    import importlib.util
+    if importlib.util.find_spec("openpyxl") is None:
+        r.warn("Thiếu openpyxl, skill wf-testcase không dựng được file Excel. Cài: python -m pip install openpyxl")
+    else:
+        r.ok("openpyxl có sẵn (bộ test case Excel)")
+
+
 def check_root(r: Report) -> None:
     if not (ROOT / ".gitmodules").exists():
         r.warn(f"Không thấy .gitmodules ở {ROOT}. .agents có đang nằm ở gốc superproject không?")
@@ -372,6 +381,7 @@ def main(argv: list[str]) -> int:
     if not r.quiet:
         print(f"Kiểm tra bộ .agents tại {ROOT}\n")
     check_python(r)
+    check_openpyxl(r)
     check_root(r)
     check_submodules(r, ci)
     names = check_skills(r)

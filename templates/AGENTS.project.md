@@ -22,6 +22,7 @@ Giữ cả file dưới 24 KiB (Codex cắt phần vượt 32 KiB mà không bá
 - client: `<submodule client>`
 - integration-test: `<submodule hoặc thư mục test tích hợp>`
 - docs: `<submodule tài liệu>`
+- testcase-book: `<file xlsx test case tổng, ví dụ docs/QA/Test_Cases.xlsx>`
 
 ### Stack và lệnh
 

@@ -13,6 +13,7 @@ Bộ quy trình dùng chung cho Claude Code, Codex và Antigravity. Repo này đ
 | `scripts/scope.py` | So file thực sự thay đổi với phạm vi được phép của giai đoạn. |
 | `scripts/guard.py` | Hook PreToolUse của Claude Code: chặn tự duyệt, sửa artifact đã duyệt, lệnh git nguy hiểm. |
 | `scripts/sync.py` | Đồng bộ `core.md` vào `AGENTS.md`. |
+| `scripts/testcase_xlsx.py` | Dựng bộ test case Excel từ spec JSON và gộp vào file tổng (skill `wf-testcase`). Cần `openpyxl`. |
 | `scripts/doctor.py` | Kiểm tra và sửa môi trường, đăng ký hook, cài git hook. |
 | `scripts/tests/` | Unit test của các script (pytest). |
 | `evals/` | Eval kích hoạt skill và hành vi. |
@@ -82,7 +83,9 @@ Cả ba tool dùng chung tên lệnh: Claude và Antigravity gõ `/wf-…`, Code
 
 Task **size S** (không chạm vùng rủi ro, không đổi contract, khoảng 3 file / 50 dòng) chỉ có 1 → 4 → 6; `01` chứa luôn bảng file và checklist.
 
-Skill chuyên đề không cần gọi; agent tự dùng khi task chạm vùng tương ứng: `wf-git`, `wf-db-migration`, `wf-health-endpoint`.
+Skill chuyên đề không cần gọi; agent tự dùng khi task chạm vùng tương ứng: `wf-git`, `wf-db-migration`, `wf-health-endpoint`, `wf-testcase`.
+
+`wf-testcase` chạy ở cuối giai đoạn test (task S: cuối implement): agent viết `work/<task-id>/testcases.json`, `scripts/testcase_xlsx.py` dựng `testcases.xlsx` theo mẫu test case của team (9 cột, khối tổng, bảng EP, bảng quyết định, sheet Report có Bug Report) và gộp vào file tổng khai báo ở vai trò `testcase-book` trong `AGENTS.md`. Cần `openpyxl` (`python -m pip install openpyxl`).
 
 Mỗi giai đoạn kết thúc bằng một artifact `draft` và agent dừng lại. Nên chạy `wf-review` trong phiên mới, tốt nhất trên tool khác với tool đã implement.
 

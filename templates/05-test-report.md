@@ -30,7 +30,21 @@ status: draft
 - Log: `evidence/test-integration.log`
 - `scope.py --stage test`: <OK | file ngoài phạm vi>
 
-## 5. Lỗi sản phẩm tìm thấy
+## 5. Bộ test case Excel
+
+<Theo skill wf-testcase.>
+
+- Spec: `testcases.json` · File task: `testcases.xlsx` · File tổng: <đường dẫn `testcase-book`>
+- Log: `evidence/testcase-xlsx.log`
+
+| Chức năng (mã) | Tổng | Pass | Fail | Pending |
+|---|---|---|---|---|
+|  |  |  |  |  |
+
+- Test case `Pending` cần người chạy:
+- Bug đã ghi vào Bug Report:
+
+## 5b. Lỗi sản phẩm tìm thấy
 
 <Test, kỳ vọng, thực tế, nghi vấn nguyên nhân. Không có thì ghi "Không có".>
 
