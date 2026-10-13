@@ -30,6 +30,8 @@ Chạy `python .agents/scripts/gate.py <task-id> requirement`; exit khác 0 thì
 
 ### 2. Ghi lại triệu chứng
 
+Xác định hành vi mong đợi từ tài liệu quyết định nghiệp vụ chỉ định trong phần "Dự án" của `AGENTS.md`, theo cách đọc và truy vết ở `wf-requirement` bước 2a. Ghi quy tắc, mục nguồn, trạng thái và AC/test hồi quy tương ứng vào `01`; không coi code hiện tại là chuẩn nghiệp vụ. Thiếu nguồn hoặc quyết định chưa chốt/mâu thuẫn ảnh hưởng hướng sửa thì ghi câu hỏi chặn, không tự suy diễn.
+
 Trước khi đoán: hành vi mong đợi và thực tế; bước tái hiện, dữ liệu đầu vào, tài khoản hoặc vai trò; môi trường (nền tảng, phiên bản, local hay deploy); thông báo lỗi, stack trace, log chép nguyên văn phần liên quan. Thiếu thông tin quan trọng thì đưa vào câu hỏi, vẫn làm tiếp phần làm được.
 
 ### 3. Tái hiện
@@ -70,6 +72,8 @@ Một đến ba hướng ở mức ý tưởng, kèm đánh đổi và hướng 
 Tạo `work/<task-id>/01-requirement.md` theo mẫu `.agents/templates/01-requirement-bug.md` (tên file vẫn là `01-requirement.md`), `status: draft`, điền "Bước tiếp theo". Trả lời người dùng: đường dẫn, nguyên nhân gốc trong một đến hai câu (hoặc nói rõ là giả thuyết), mức nghiêm trọng, hướng sửa đề xuất, `size`, `contract_change`, câu hỏi mở, lệnh duyệt. Dừng ở đó.
 
 ## Tự kiểm trước khi bàn giao
+
+- [ ] Đã đối chiếu quyết định nghiệp vụ, giữ đúng trạng thái nguồn và truy vết quy tắc → AC → checklist/test theo giai đoạn; ghi rõ lý do không áp dụng hoặc câu hỏi chặn nếu có.
 
 - [ ] Có log tái hiện trong `evidence/`, hoặc ghi rõ không tái hiện được và đã thử gì.
 - [ ] Nguyên nhân gốc có bằng chứng, hoặc được ghi là giả thuyết.

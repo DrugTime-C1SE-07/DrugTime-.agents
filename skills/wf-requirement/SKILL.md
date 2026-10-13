@@ -31,6 +31,14 @@ Task ID theo quy ước trong `AGENTS.md`. Chạy `python .agents/scripts/gate.p
 
 Đọc code, contract và tài liệu liên quan; chỉ đọc. Mục tiêu: biết tính năng đã có một phần chưa, endpoint nào đang có, bảng dữ liệu nào liên quan, module nào sở hữu logic. Ghi mọi nguồn đã đọc vào mục "Bối cảnh & nguồn đã đọc" để agent sau (có thể trên tool khác) không phải đọc lại. Câu hỏi trả lời được bằng cách đọc repo thì không hỏi.
 
+### 2a. Đọc quyết định nghiệp vụ
+
+Đọc tài liệu quyết định nghiệp vụ được chỉ định ở phần "Dự án" của `AGENTS.md`: quy ước trạng thái, mục chức năng liên quan, quyết định liên quan chéo và điểm không nhất quán ảnh hưởng task. Không suy nghiệp vụ chỉ từ code hiện tại hay backlog.
+
+Trong `01`, thêm mục "Quyết định nghiệp vụ áp dụng": đường dẫn + mục nguồn, baseline/phiên bản nếu có, mã quyết định (nếu có), quy tắc cụ thể, trạng thái theo nguồn và AC tương ứng. Một mã có nhiều quy tắc thì ghi rõ mục/nội dung để phân biệt. Chuyển mỗi quy tắc trong phạm vi thành AC kiểm thử được, gồm nhánh lỗi/biên mà nguồn quy định. Task S phải truy vết tiếp tới checklist và test trong `01` vì không có plan.
+
+Không có quyết định liên quan: ghi "Không áp dụng" kèm các mục đã đối chiếu và lý do. Không đọc được nguồn, quy tắc còn mở/chờ duyệt hoặc mâu thuẫn với yêu cầu/contract/bất biến: ghi câu hỏi chặn nếu ảnh hưởng hành vi trong phạm vi; không tự chọn hay biến đề xuất thành nghiệp vụ đã chốt. Các phần không bị chặn vẫn tiếp tục phân tích.
+
 ### 3. Mục tiêu và phạm vi
 
 Mục tiêu một đến ba câu, theo góc nhìn người dùng cuối hoặc hệ thống. Liệt kê rõ "ngoài phạm vi"; đây là chỗ ngăn phạm vi phình ra và là thứ người duyệt hay bỏ sót nhất.
@@ -92,6 +100,8 @@ Tạo `work/<task-id>/01-requirement.md` theo mẫu `.agents/templates/01-requir
 Khi người dùng trả lời câu hỏi: cập nhật file (vẫn `draft`), chuyển câu đã trả lời sang "Giả định" hoặc sửa nội dung tương ứng, nói rõ đã đổi gì.
 
 ## Tự kiểm trước khi bàn giao
+
+- [ ] Đã đối chiếu quyết định nghiệp vụ, giữ đúng trạng thái nguồn và truy vết quy tắc → AC → checklist/test theo giai đoạn; ghi rõ lý do không áp dụng hoặc câu hỏi chặn nếu có.
 
 - [ ] Mọi mục của mẫu có nội dung, hoặc ghi "Không có" kèm lý do.
 - [ ] `contract_change` là `yes`/`no` có lý do, hoặc `unknown` kèm câu hỏi "chặn".

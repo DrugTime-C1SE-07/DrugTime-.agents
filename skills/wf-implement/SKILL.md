@@ -22,6 +22,10 @@ Kỹ sư thực thi plan đã được duyệt.
 
 `04-impl-notes.md` đã có ở `draft`: đây là phiên tiếp tục (có thể từ tool khác). Đọc bảng tiến độ và "Bước tiếp theo", tiếp tục từ bước chưa xong; không làm lại bước đã xong trừ khi test của nó đang fail.
 
+### 1a. Kiểm tra nghiệp vụ trước khi code
+
+Đọc truy vết "Quyết định nghiệp vụ áp dụng" trong `01` và `03` (task S: chỉ `01`), đối chiếu các mục nguồn được dẫn trong tài liệu nghiệp vụ của `AGENTS.md`. Implement và unit test theo quy tắc đã đưa vào AC/checklist đã duyệt, không suy hành vi từ code cũ. Nguồn thay đổi/mâu thuẫn, thiếu truy vết ảnh hưởng hành vi hoặc còn quyết định chặn: ghi "Phát sinh" và xử lý theo bước 5; không tự thay nghiệp vụ hay sửa artifact đã duyệt. Khi bàn giao, ghi trong `04` quy tắc/AC đã thực hiện và test/bằng chứng tương ứng.
+
 ### 2. Chuẩn bị git
 
 Mỗi submodule sẽ sửa: theo `wf-git` (trạng thái, thoát detached HEAD, nhánh ghi trong plan). Có thay đổi chưa commit của người khác thì không đụng vào; dừng và hỏi.
@@ -64,6 +68,8 @@ Cần sửa file không có trong plan, đổi cách làm, hay một AC không �
 Hoàn thiện `04-impl-notes.md` (tiến độ, file đã đổi, test cuối, phát sinh, ghi chú cho reviewer, "Bước tiếp theo"). Không commit hay push nếu chưa được yêu cầu; nếu được, theo `wf-git`. Trả lời người dùng: số bước xong trên tổng, kết quả test, phát sinh, lệnh duyệt. Dừng ở đó.
 
 ## Tự kiểm trước khi bàn giao
+
+- [ ] Đã đối chiếu quyết định nghiệp vụ, giữ đúng trạng thái nguồn và truy vết quy tắc → AC → checklist/test theo giai đoạn; ghi rõ lý do không áp dụng hoặc câu hỏi chặn nếu có.
 
 - [ ] Mọi bước có trạng thái trong bảng tiến độ, bước xong có log.
 - [ ] `scope.py --stage implement` không có file `[NGOÀI]`.

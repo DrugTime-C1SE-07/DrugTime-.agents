@@ -22,6 +22,14 @@ Bảng "File sẽ thay đổi" được `scope.py` đọc để chặn implement
 
 `python .agents/scripts/gate.py <task-id> plan`; exit khác 0 thì dừng. Đọc `01` và `02` (nếu có). Mọi tiêu chí chấp nhận (AC) phải được plan phủ.
 
+### 1a. Đối chiếu quyết định nghiệp vụ
+
+Đọc lại quy ước trạng thái và các mục liên quan trong tài liệu quyết định nghiệp vụ chỉ định ở phần "Dự án" của `AGENTS.md`; đối chiếu với mục "Quyết định nghiệp vụ áp dụng" trong `01`. Ghi đường dẫn + mục nguồn, baseline/phiên bản nếu có và trạng thái vào "Khảo sát"; không chỉ dựa vào bản tóm tắt cũ hoặc hành vi code.
+
+Trong `03`, thêm bảng "Quyết định nghiệp vụ áp dụng" truy vết quy tắc (mã + mục/nội dung nguồn) → AC → bước Pn → test. Bao phủ các nhánh lỗi/biên được nguồn quy định; giữ nguyên trạng thái của quyết định, không tự chốt đề xuất hay điểm còn mở. Không áp dụng thì ghi các mục đã đối chiếu và lý do.
+
+Nếu nguồn thay đổi, thiếu hoặc mâu thuẫn khiến phải đổi AC/phạm vi của `01` hay contract `02` đã duyệt: ghi phát hiện và câu hỏi chặn, đề xuất người dùng reopen artifact tương ứng. Không sửa artifact đã duyệt hoặc dùng plan để âm thầm đổi nghiệp vụ. Vẫn khảo sát phần không phụ thuộc câu trả lời.
+
 ### 2. Khảo sát code
 
 Đọc phần code bị ảnh hưởng: module sở hữu logic, các lớp theo kiến trúc ghi trong `AGENTS.md`, pattern đang dùng cho việc tương tự, test hiện có. Ưu tiên tái sử dụng. Ghi file đã đọc vào mục "Khảo sát".
@@ -71,6 +79,8 @@ Tên nhánh cho từng submodule theo `wf-git`.
 Tạo `work/<task-id>/03-plan.md` theo mẫu `.agents/templates/03-plan.md`, `status: draft`, điền "Bước tiếp theo". Trả lời người dùng: tóm tắt giải pháp, số file theo submodule, số bước, rủi ro chính, câu hỏi mở, lệnh duyệt. Dừng ở đó.
 
 ## Tự kiểm trước khi bàn giao
+
+- [ ] Đã đối chiếu quyết định nghiệp vụ, giữ đúng trạng thái nguồn và truy vết quy tắc → AC → checklist/test theo giai đoạn; ghi rõ lý do không áp dụng hoặc câu hỏi chặn nếu có.
 
 - [ ] Mọi AC được ít nhất một bước và một test phủ.
 - [ ] Mọi file sẽ sửa, kể cả test, có trong bảng; bảng đúng bốn cột trên.
