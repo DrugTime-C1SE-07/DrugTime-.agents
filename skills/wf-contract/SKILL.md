@@ -69,4 +69,3 @@ Tạo `work/<task-id>/02-contract.md` theo mẫu `.agents/templates/02-contract.
 - [ ] Mỗi thay đổi có nhãn tương thích; thay đổi phá vỡ có danh sách client bị ảnh hưởng.
 - [ ] Định dạng và quy ước khớp phần còn lại của contract.
 - [ ] `scope.py --stage contract` không báo file ngoài phạm vi.
-- [ ] Cập nhật vào endpoint vào thư mục postman
